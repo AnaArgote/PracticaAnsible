@@ -67,4 +67,4 @@ BEGIN
 		SELECT 'El Diseno ya se encuentra registrado';
 	END IF;
 END $$
-
+insert into TipoSombrero values('Cubano');
