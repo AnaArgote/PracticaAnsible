@@ -38,7 +38,7 @@ BEGIN
 	SET @TipoSombreroId = (SELECT TipoSombreroId FROM TipoSombrero WHERE _TipoSombreroNombre = TipoSombreroNombre);
     IF @TipoSombreroId IS NULL THEN
 		INSERT INTO TipoSombrero(TipoSombreroNombre) VALUES (_TipoSombreroNombre);	
-        SELECT 1 as Code, 'El tipo de sombrero se registró exitosamente' as Message;
+        SELECT 1 as Code, 'El tipo de sombrero se registro exitosamente' as Message;
 	ELSEIF @TipoSombreroId IS NOT NULL THEN
 		SELECT 0 as Code, 'El tipo de sombrero ya se encuentra registrado' as Message;
 	END IF;
@@ -50,9 +50,10 @@ CREATE PROCEDURE insertar_ColorSombrero
 BEGIN
 	SET @ColorSombreroId = (SELECT ColorSombreroId FROM ColorSombrero WHERE _ColorSombreroNombre = ColorSombreroNombre);
     IF @ColorSombreroId IS NULL THEN
-		INSERT INTO ColorSombrero(ColorSombreroNombre) VALUES (_ColorSombreroNombre);	
+		INSERT INTO ColorSombrero(ColorSombreroNombre) VALUES (_ColorSombreroNombre);
+        SELECT 1 as Code, 'El tipo de sombrero se registró exitosamente' as Message;
 	ELSEIF @ColorSombreroId IS NOT NULL THEN
-		SELECT 'El color de sombrero ya se encuentra registrado';
+		SELECT 1 as Code, 'El tipo de sombrero se registró exitosamente' as Message;
 	END IF;
 END $$
 
@@ -63,8 +64,9 @@ BEGIN
 	SET @DisenoId = (SELECT DisenoId FROM Disenos WHERE _DisenoNombre = DisenoNombre);
     IF @DisenoId IS NULL THEN
 		INSERT INTO Disenos(DisenoNombre) VALUES (_DisenoNombre);	
+        SELECT 1 as Code, 'El tipo de sombrero se registró exitosamente' as Message;
 	ELSEIF @DisenoId IS NOT NULL THEN
-		SELECT 'El Diseno ya se encuentra registrado';
+		SELECT 1 as Code, 'El tipo de sombrero se registró exitosamente' as Message;
 	END IF;
 END $$
-insert into TipoSombrero values('Cubano');
+insert into TipoSombrero(TipoSombreroNombre) values('Cubano');
