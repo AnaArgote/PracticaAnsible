@@ -8,7 +8,7 @@ btnGuardar.onclick = function () {
 
 function codigoFuncion() {
     var peticion = new XMLHttpRequest(); //Hacer petición a backend
-    peticion.open('POST', 'http://localhost/Ansible/PHP/InsertarTipo.php');
+    peticion.open('POST', 'http://192.168.1.74/Ansible/PHP/InsertarTipo.php');
     var parametros = new FormData(); //Poner parametros
     parametros.append('TipoSombrero', txtTipo.value);
     peticion.send(parametros); //Enviar petición

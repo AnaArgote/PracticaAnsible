@@ -9,16 +9,16 @@ create table ColorSombrero(
 ColorSombreroId int primary key,
 ColorSombreroNombre nvarchar(40)
 );
-create table Diseños(
-DiseñoId int primary key,
-DiseñoNombre nvarchar(40)
+create table Disenos(
+DisenoId int primary key,
+DisenoNombre nvarchar(40)
 );
 
 create table Sombrero(
 SombreroId int primary key,
 TipoSombreroId int,
 ColorSombreroId int,
-DiseñoId int
+DisenoId int
 );
 
 alter table Sombrero
@@ -28,8 +28,8 @@ alter table Sombrero
 add constraint Fk_ColorSombreroId_ColorSombrero_Sombrero
 Foreign key (ColorSombreroId) references ColorSombrero(ColorSombreroId);
 alter table Sombrero
-add constraint Fk_DiseñoId_Diseño_Sombrero
-Foreign key (DiseñoId) references Diseño(DiseñoId);
+add constraint Fk_DisenoId_Diseno_Sombrero
+Foreign key (DisenoId) references Diseno(DisenoId);
 drop procedure insertar_TipoSombrero;
 DELIMITER $$
 CREATE PROCEDURE insertar_TipoSombrero
@@ -57,17 +57,13 @@ BEGIN
 END $$
 
 DELIMITER $$
-CREATE PROCEDURE insertar_Diseño
-(_DiseñoNombre NVARCHAR(40))
+CREATE PROCEDURE insertar_Diseno
+(_DisenoNombre NVARCHAR(40))
 BEGIN
-	SET @DisenoId = (SELECT DiseñoId FROM Diseños WHERE _DiseñoNombre = DiseñoNombre);
+	SET @DisenoId = (SELECT DisenoId FROM Disenos WHERE _DisenoNombre = DisenoNombre);
     IF @DisenoId IS NULL THEN
-		INSERT INTO Diseños(DiseñoNombre) VALUES (_DiseñoNombre);	
+		INSERT INTO Disenos(DisenoNombre) VALUES (_DisenoNombre);	
 	ELSEIF @DisenoId IS NOT NULL THEN
-		SELECT 'El diseño ya se encuentra registrado';
+		SELECT 'El Diseno ya se encuentra registrado';
 	END IF;
 END $$
-
-call insertar_TipoSombrero("Bombín");
-
-delete from Diseños where DiseñoNombre = ''
