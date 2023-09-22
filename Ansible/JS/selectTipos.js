@@ -6,7 +6,7 @@ function Leer() {
     peticion.send(); //Enviar petición
     peticion.onload = function () {
         console.log(peticion.responseText);
-        var objJson = JSON.parse(peticion.responseText);
+        var objJson = JSON.parse(peticion.responseText); 
         
         var fila;
         var Id;
