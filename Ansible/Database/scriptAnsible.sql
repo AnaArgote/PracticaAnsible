@@ -30,7 +30,7 @@ Foreign key (ColorSombreroId) references ColorSombrero(ColorSombreroId);
 alter table Sombrero
 add constraint Fk_DisenoId_Diseno_Sombrero
 Foreign key (DisenoId) references Disenos(DisenoId);
-drop procedure insertar_TipoSombrero;
+
 DELIMITER $$
 CREATE PROCEDURE insertar_TipoSombrero
 (_TipoSombreroNombre NVARCHAR(40))
@@ -67,3 +67,4 @@ BEGIN
 		SELECT 'El Diseno ya se encuentra registrado';
 	END IF;
 END $$
+
