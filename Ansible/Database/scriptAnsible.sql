@@ -1,21 +1,21 @@
 create database Mexihat;
 USE Mexihat;
 create table TipoSombrero(
-TipoSombreroId int primary key,
+TipoSombreroId int primary key auto_increment,
 TipoSombreroNombre nvarchar(40)
 );
 
 create table ColorSombrero(
-ColorSombreroId int primary key,
+ColorSombreroId int primary key auto_increment,
 ColorSombreroNombre nvarchar(40)
 );
 create table Disenos(
-DisenoId int primary key,
+DisenoId int primary key auto_increment,
 DisenoNombre nvarchar(40)
 );
 
 create table Sombrero(
-SombreroId int primary key,
+SombreroId int primary key auto_increment,
 TipoSombreroId int,
 ColorSombreroId int,
 DisenoId int
